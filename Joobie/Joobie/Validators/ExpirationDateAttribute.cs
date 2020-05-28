@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Joobie.Utility
+namespace Joobie.Validators
 {
     public class ExpirationDateAttribute : ValidationAttribute
     {

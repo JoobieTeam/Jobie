@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Joobie.Utility
+namespace Joobie.Validators
 {
     public class AddedDateAttribute : ValidationAttribute
     {
