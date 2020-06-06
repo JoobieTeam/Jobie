@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Joobie.Utility;
+using Joobie.Validators;
 
 namespace Joobie.Models.JobModels
 {
