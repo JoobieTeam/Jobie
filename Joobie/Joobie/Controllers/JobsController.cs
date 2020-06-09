@@ -196,7 +196,7 @@ namespace Joobie.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = Strings.AdminUser + "," + Strings.ModeratorUser + "," + Strings.CompanyUser)]
-        public async Task<IActionResult> Save(long id, [Bind("Id,Name,Description,Localization,AddedDate,ExpirationDate,Salary,CategoryId,TypeOfContractId,WorkingHoursId,UserId")] Job job)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,Description,Localization,AddedDate,ExpirationDate,Salary,CategoryId,TypeOfContractId,WorkingHoursId,UserId")] Job job)
         {
             if (id != job.Id)
             {
@@ -205,12 +205,13 @@ namespace Joobie.Controllers
 
 
             var currentUserId = _userManager.GetUserId(User);
+            if (User.IsInRole(Strings.CompanyUser)) { 
             if (job.UserId != currentUserId)
             {
                 ViewData["Title"] = "Brak dostępu";
                 return View("~/Views/Shared/AccessDenied.cshtml");
             }
-
+        }
             if (ModelState.IsValid)
             {
                 try
